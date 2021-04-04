@@ -1,12 +1,12 @@
-const hackerrank = require("./hrjohn20200402.json");
+const hackerrank = require("./inputfilename.json");
 const fs = require("fs");
 const path = require('path');
   
-//console.log(hackerrank);
+
 var submissions = hackerrank.submissions;
 
 var count = 0
-//str = str.replace(/\s/g, '');
+
 
 for (i = 0; i < submissions.length; i++) {
     let name = submissions[i].challenge;
@@ -16,9 +16,6 @@ for (i = 0; i < submissions.length; i++) {
     let lang = submissions[i].language;
     let code = submissions[i].code;
 
-
-
-//    console.log(name + " " + score + " " + lang )
 
     let fileName = camelCase(name);
 
@@ -31,7 +28,6 @@ for (i = 0; i < submissions.length; i++) {
 
 
     let fileDir = path.join(__dirname, lang);
-   // console.log(fileDir)
    
      if (!fs.existsSync(fileDir)){
 
@@ -40,7 +36,7 @@ for (i = 0; i < submissions.length; i++) {
 
      let fullFileName = path.join(fileDir, fileName);
 
-     // console.log("full file name "+ fullFileName)
+
 
       try {
         if (fs.existsSync(fullFileName)) {
